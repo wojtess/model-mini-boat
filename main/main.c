@@ -39,8 +39,8 @@ void app_main() {
     // xTaskCreatePinnedToCore(servo_task, "servo_task", 4096, NULL, 3, NULL, 0);
     // xTaskCreatePinnedToCore(motor_task, "motor_task", 4096, NULL, 3, NULL, 0);
     // xTaskCreatePinnedToCore(led_task, "led_task", 4096, NULL, 3, NULL, 0);
-    // xTaskCreatePinnedToCore(screen_task, "screen_task", 4096, NULL, 3, NULL, 0);
-    xTaskCreatePinnedToCore(rest_task, "rest_task", 4096, NULL, 3, NULL, 0);
+    xTaskCreatePinnedToCore(screen_task, "screen_task", 4096, NULL, 3, NULL, 0);
+    // xTaskCreatePinnedToCore(rest_task, "rest_task", 4096, NULL, 3, NULL, 0);
 
 }
    

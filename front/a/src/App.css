@@ -1,0 +1,262 @@
+@font-face {
+  font-family: digital-7;
+  src: url('../public/digital-7.ttf');
+}
+
+@font-face {
+  font-family: digital-7-mono;
+  src: url('../public/digital-7-mono.ttf');
+}
+
+body{
+  background-color: darkblue;
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+  width: 90vw;
+  height: 100vh;
+}
+
+.controlPage{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  padding: 0vw 4vw 0vw 10vw;
+}
+
+.throttle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.throttle-label {
+  position: absolute;
+  font-family: digital-7-mono;
+  font-size: 7vh;
+  background-color: #000;
+  height: 10%;
+  width: 50%;
+  text-align: center;
+  bottom: 0;
+}
+
+.throttle-back-text{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #81818150;
+  top: 0;
+}
+
+.throttle-front-text{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #c5c5c5;
+  top: 0;
+}
+
+.throttle-slider-wrapper{
+  height: 80%;  
+  position: relative;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.throttle-slider {
+  transform: rotate(-90deg);
+  width: 48vh;
+  height: 4vw;
+  appearance: none;
+  background: #555;
+  border-radius: 5px;
+  outline: none;
+}
+
+.throttle-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 4vh;
+  height: 10vw;
+  background: #6d0000;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(39, 0, 0, 0.3);
+}
+
+.throttle-slider::-moz-range-thumb {
+  width: 4vh;
+  height: 6vw;
+  background: #6d0000;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(39, 0, 0, 0.3);
+}
+
+.ledsPage{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+nav{
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 10vw; 
+}
+
+
+ul.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+}
+
+ul.vertical {
+  list-style-type: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li.horizontal {
+  float: left;
+}
+
+li.vertical {
+  display: block;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+li.vertical a {
+  display: flex;
+  color: #000;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.imageWrapper{
+  padding: 15%;
+}
+
+img.vertical{
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-vertical-text{
+  transform: rotate(90deg);
+  margin: 0;
+  font-size: 3vw;
+}
+
+.led-div-input{
+  display: flex;
+  width: 40vw;
+  height: 40vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.led-text-input{
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 40px;
+  font-size: 1.6em;
+  box-sizing: border-box;
+  padding: 0 20px;
+  background-color: whitesmoke;
+  margin-bottom: 4%;
+}
+
+.led-text-input:focus{
+  outline: none;  
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.7);
+}
+
+.led-color-and-button{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+}
+
+.led-color-input{
+  width: 40%;
+  margin-top: 4%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.led-color-input::-webkit-color-swatch {
+  border-radius: 15px;
+  border: 8px solid black;
+}
+.led-color-input::-moz-color-swatch {
+  border-radius: 15px;
+  border: 8px solid black;
+}
+
+.save-color-input-wrapper{
+  width: 40%;
+  margin-top: 4%;
+  height: 100%;
+  padding: 5px 4px;
+  box-sizing: border-box;
+}
+
+.save-color-input{
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-radius: 15px;
+  border: 8px solid black;
+  cursor: pointer;
+  font-size: 4vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
