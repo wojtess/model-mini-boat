@@ -27,7 +27,7 @@ void servo_task(void* arg)
 {
     ESP_LOGI(TAG, "Inicjalizacja MCPWM");
     // Inicjalizacja MCPWM dla jednostki MCPWM0
-    mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM0A, SERVO_PULSE_GPIO);
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, SERVO_PULSE_GPIO);
 
     // Konfiguracja MCPWM
     mcpwm_config_t pwm_config;
@@ -38,11 +38,11 @@ void servo_task(void* arg)
     pwm_config.duty_mode = MCPWM_DUTY_MODE_0;
 
     // Inicjalizacja MCPWM
-    mcpwm_init(MCPWM_UNIT_1, MCPWM_TIMER_0, &pwm_config);
+    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
 
     // Ustawienie serwa na środek (0 stopni)
     uint32_t initial_pulsewidth = example_angle_to_compare(0);
-    mcpwm_set_duty_in_us(MCPWM_UNIT_1, MCPWM_TIMER_0, MCPWM_OPR_A, initial_pulsewidth);
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, initial_pulsewidth);
 
     ESP_LOGI(TAG, "Serwo gotowe");
 
@@ -50,7 +50,7 @@ void servo_task(void* arg)
         float angle = state.yaw * (float)SERVO_MAX_ANGLE;
         uint32_t pulsewidth = example_angle_to_compare((int)angle);
         // ESP_LOGI(TAG, "angle: %f, pulsewidth: %ld", angle, pulsewidth);
-        ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_1, MCPWM_TIMER_0, MCPWM_OPR_A, pulsewidth));
+        ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, pulsewidth));
         // Dodanie opóźnienia na czas obrotu serwa
         vTaskDelay(pdMS_TO_TICKS(50));
     }

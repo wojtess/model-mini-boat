@@ -9,8 +9,8 @@ const static char *TAG = "POWERTRAIN IS THE BEST";
         ADC General Macros
 ---------------------------------------------------------------*/
 
-#define ADC2_CHAN0          ADC2_CHANNEL_8
-#define ADC2_CHAN1          ADC2_CHANNEL_9
+#define ADC2_CHAN0          ADC_CHANNEL_2
+#define ADC2_CHAN1          ADC_CHANNEL_1
 
 #define ADC_ATTEN           ADC_ATTEN_DB_12
 #define ADC_LOG
