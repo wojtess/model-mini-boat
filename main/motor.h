@@ -4,5 +4,6 @@
 #include "driver/mcpwm.h"
 #include "esp_attr.h"
 #include "soc/mcpwm_periph.h"
+#include "data_types.h"
 
-void motor_task(void *arg);
+void motor_task(shared_t *arg);

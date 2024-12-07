@@ -2,6 +2,8 @@
     "files.associations": {
         "font8x8_basic.h": "c",
         "screen.h": "c",
-        "ssd1306.h": "c"
+        "ssd1306.h": "c",
+        "data_types.h": "c",
+        "motor.h": "c"
     }
 }

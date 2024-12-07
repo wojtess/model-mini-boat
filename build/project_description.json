@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "restful_server",
-    "project_version":    "47ea5c98-dirty",
+    "project_version":    "b557ffac-dirty",
     "project_path":       "/home/wojtess/Documents/programing/esp32/powertrain/model2",
     "idf_path":           "/home/wojtess/Documents/programs/esp-idf-v5.2.1",
     "build_dir":          "/home/wojtess/Documents/programing/esp32/powertrain/model2/build",

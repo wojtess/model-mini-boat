@@ -7,7 +7,8 @@ idf_component_register(SRCS "esp_rest.c"
                             "motor.c"
                             "led_strip_encoder.c"
                             "led.c"
-                    INCLUDE_DIRS ".")
+                    INCLUDE_DIRS "."
+                    )
 
 
 set(WEB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../front/a")

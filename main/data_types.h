@@ -8,6 +8,7 @@ typedef struct {
 
 typedef struct {
     char text[200];
+    int throttle;
 } shared_t;
 
 #endif

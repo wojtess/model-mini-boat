@@ -129,17 +129,19 @@ static esp_err_t controls_post_hanlder(httpd_req_t *req) {
     }
     buf[total_len] = '\0';
 
-    cJSON *root = cJSON_Parse(buf);
-    // double joyPos = cJSON_GetObjectItem(root, "joyPos")->valuedouble;
-    char* text = cJSON_GetObjectItem(root, "text")->valuestring;
+    printf("buf: %s\n", buf);
 
-    char* printed_json = cJSON_Print(root);
+    cJSON *root = cJSON_Parse(buf);
+    int throttlePos = cJSON_GetObjectItem(root, "throttlePos")->valueint;
+    // char* printed_json = cJSON_Print(root);
+    // printf("printedJson: %s\n", printed_json);
+    char* text = cJSON_GetObjectItem(root, "text")->valuestring;
 
     shared_t* shared_data = ((rest_server_context_t *)(req->user_ctx))->shared_data;
 
-    
-    strncpy(shared_data->text, text, 200);
-    printf("po strncpy: %s\n", shared_data->text);
+
+    strcpy(shared_data->text, text);//dst then source
+    shared_data->throttle = throttlePos;
 
     cJSON_Delete(root);
     httpd_resp_sendstr(req, "Ok");
@@ -214,6 +216,7 @@ esp_err_t start_rest_server(const char *base_path, shared_t* shared_data)
     rest_server_context_t *rest_context = calloc(1, sizeof(rest_server_context_t));
     REST_CHECK(rest_context, "No memory for rest context", err);
     strlcpy(rest_context->base_path, base_path, sizeof(rest_context->base_path));
+    rest_context->shared_data = shared_data;
 
     httpd_handle_t server = NULL;
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
