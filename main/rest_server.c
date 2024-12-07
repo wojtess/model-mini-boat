@@ -129,16 +129,15 @@ static esp_err_t controls_post_hanlder(httpd_req_t *req) {
     }
     buf[total_len] = '\0';
 
-    printf("buf: %s\n", buf);
+    // printf("buf: %s\n", buf);
 
     cJSON *root = cJSON_Parse(buf);
-    int throttlePos = cJSON_GetObjectItem(root, "throttlePos")->valueint;
+    int throttlePos = atoi(cJSON_GetObjectItem(root, "throttlePos")->valuestring);
     // char* printed_json = cJSON_Print(root);
     // printf("printedJson: %s\n", printed_json);
     char* text = cJSON_GetObjectItem(root, "text")->valuestring;
 
     shared_t* shared_data = ((rest_server_context_t *)(req->user_ctx))->shared_data;
-
 
     strcpy(shared_data->text, text);//dst then source
     shared_data->throttle = throttlePos;

@@ -37,6 +37,7 @@ static const char* TAG = "main";
 
 shared_t shared_data = {
     .text = "PUT Powertrain #DrogaDoMonako",
+    .throttle = 50,
 };
 
 void app_main() {
