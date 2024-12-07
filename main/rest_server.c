@@ -14,6 +14,7 @@
 #include "esp_log.h"
 #include "esp_vfs.h"
 #include "cJSON.h"
+#include "data_types.h"
 
 static const char *REST_TAG = "esp-rest";
 #define REST_CHECK(a, str, goto_tag, ...)                                              \
@@ -32,6 +33,7 @@ static const char *REST_TAG = "esp-rest";
 typedef struct rest_server_context {
     char base_path[ESP_VFS_PATH_MAX + 1];
     char scratch[SCRATCH_BUFSIZE];
+    shared_t* shared_data;
 } rest_server_context_t;
 
 #define CHECK_FILE_EXTENSION(filename, ext) (strcasecmp(&filename[strlen(filename) - strlen(ext)], ext) == 0)
@@ -107,7 +109,7 @@ static esp_err_t rest_common_get_handler(httpd_req_t *req)
 }
 
 static esp_err_t controls_post_hanlder(httpd_req_t *req) {
-        int total_len = req->content_len;
+    int total_len = req->content_len;
     int cur_len = 0;
     char *buf = ((rest_server_context_t *)(req->user_ctx))->scratch;
     int received = 0;
@@ -128,9 +130,16 @@ static esp_err_t controls_post_hanlder(httpd_req_t *req) {
     buf[total_len] = '\0';
 
     cJSON *root = cJSON_Parse(buf);
-    double joyPos = cJSON_GetObjectItem(root, "joyPos")->valuedouble;
+    // double joyPos = cJSON_GetObjectItem(root, "joyPos")->valuedouble;
+    char* text = cJSON_GetObjectItem(root, "text")->valuestring;
 
-    // printf("joyPos: %lf\n", joyPos);
+    char* printed_json = cJSON_Print(root);
+
+    shared_t* shared_data = ((rest_server_context_t *)(req->user_ctx))->shared_data;
+
+    
+    strncpy(shared_data->text, text, 200);
+    printf("po strncpy: %s\n", shared_data->text);
 
     cJSON_Delete(root);
     httpd_resp_sendstr(req, "Ok");
@@ -199,7 +208,7 @@ static esp_err_t temperature_data_get_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
-esp_err_t start_rest_server(const char *base_path)
+esp_err_t start_rest_server(const char *base_path, shared_t* shared_data)
 {
     REST_CHECK(base_path, "wrong base path", err);
     rest_server_context_t *rest_context = calloc(1, sizeof(rest_server_context_t));

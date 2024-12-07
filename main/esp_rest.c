@@ -31,6 +31,7 @@
 #include "driver/sdmmc_host.h"
 #endif
 #include "screen.h"
+#include "data_types.h"
 
 #include "esp_adc/adc_oneshot.h"
 #include "esp_adc/adc_cali.h"
@@ -41,8 +42,6 @@
 #define MDNS_INSTANCE "esp home web server"
 
 static const char *TAG = "example";
-
-esp_err_t start_rest_server(const char *base_path);
 
 static void initialise_mdns(void)
 {
@@ -148,7 +147,7 @@ void softap_set_dns_addr(esp_netif_t *esp_netif_ap,esp_netif_t *esp_netif_sta)
 }
 
 
-void start_webserver(void)
+void start_webserver(shared_t* shared_data)
 {
     ESP_ERROR_CHECK(init_fs());
 
@@ -176,12 +175,12 @@ void start_webserver(void)
     /* Start WiFi */
     ESP_ERROR_CHECK(esp_wifi_start() );
 
-    ESP_ERROR_CHECK(start_rest_server(CONFIG_EXAMPLE_WEB_MOUNT_POINT));
+    ESP_ERROR_CHECK(start_rest_server(CONFIG_EXAMPLE_WEB_MOUNT_POINT, shared_data));
 }
 
-void rest_task() {
-    start_webserver();
+void rest_task(shared_t* shared_data) {
+    start_webserver(shared_data);
     while(1) {
-        vTaskDelay(1);
+        vTaskDelay(0xFFFF);
     }
 }

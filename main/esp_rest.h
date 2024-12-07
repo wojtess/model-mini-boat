@@ -1,4 +1,4 @@
 
-void start_webserver();
+void start_webserver(shared_t* shared_data);
 
-void rest_task();
+void rest_task(shared_t* shared_data);

@@ -6,4 +6,8 @@ typedef struct {
     float yaw;
 } state_t;
 
+typedef struct {
+    char text[200];
+} shared_t;
+
 #endif

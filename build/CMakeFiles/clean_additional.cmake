@@ -1,7 +1,7 @@
 # Additional clean files
 cmake_minimum_required(VERSION 3.16)
 
-if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
+if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Debug")
   file(REMOVE_RECURSE
   "bootloader/bootloader.bin"
   "bootloader/bootloader.elf"
@@ -19,6 +19,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "project_elf_src_esp32c3.c"
   "restful_server.bin"
   "restful_server.map"
+  "www.bin"
   "x509_crt_bundle.S"
   )
 endif()

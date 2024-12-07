@@ -24,6 +24,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </FullscreenDataProvider>
+      <DataSender></DataSender>
     </DataProvider>
     </>
   );

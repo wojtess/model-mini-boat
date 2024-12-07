@@ -1,4 +1,4 @@
-# Install script for directory: /home/jedrek/esp/esp-idf/components/mbedtls/mbedtls
+# Install script for directory: /home/wojtess/Documents/programs/esp-idf-v5.2.1/components/mbedtls/mbedtls
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -32,23 +32,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
-# Set path to fallback-tool for dependency-resolution.
+# Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/jedrek/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/riscv32-esp-elf-objdump")
+  set(CMAKE_OBJDUMP "/home/wojtess/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20240906/riscv32-esp-elf/bin/riscv32-esp-elf-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jedrek/Powertrain/model-min--boa/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("/home/jedrek/Powertrain/model-min--boa/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("/home/jedrek/Powertrain/model-min--boa/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/home/jedrek/Powertrain/model-min--boa/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
+  include("/home/wojtess/Documents/programing/esp32/powertrain/model2/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/home/wojtess/Documents/programing/esp32/powertrain/model2/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("/home/wojtess/Documents/programing/esp32/powertrain/model2/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/home/wojtess/Documents/programing/esp32/powertrain/model2/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
 
 endif()
 
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/jedrek/Powertrain/model-min--boa/build/esp-idf/mbedtls/mbedtls/install_local_manifest.txt"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
-endif()

@@ -15,7 +15,7 @@ const DataSender = () => {
     // Function to send data
     const sendData = async () => {
       try {
-        const response = await fetch("http://localhost:5000", {
+        const response = await fetch("http://192.168.4.1/api/v1/controls", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
