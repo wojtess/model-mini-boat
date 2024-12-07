@@ -22,9 +22,9 @@ const LedsInput = () =>{
 
     return(
         <div className="led-div-input   ">
-            <input type="text" value="PUT Powertrain" ref={textRef} className="led-text-input"/>
+            <input type="text" defaultValue={dataToSend["text"]} ref={textRef} className="led-text-input"/>
             <div class="led-color-and-button">
-                <input type="color" defaultValue="#0000ff" ref={colorRef}  className="led-color-input"/>
+                <input type="color" defaultValue={dataToSend["color"]} ref={colorRef}  className="led-color-input"/>
                 <div className="save-color-input-wrapper"><input type="button" className="save-color-input" value="SAVE" onClick={butonHandle}/></div>
             </div>
         </div>

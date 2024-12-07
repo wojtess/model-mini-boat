@@ -7,21 +7,23 @@ import NoPage from "./pages/NoPage";
 import DataSender from "./DataSender";
 import "./App.css"
 import { DataProvider } from "./DataContext";
+import { FullscreenDataProvider } from "./IsFullscreenContext";
 
 export default function App() {
   return (
     <>
     <DataProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
+      <FullscreenDataProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
             <Route index element={<Controls />} />
-            <Route path="leds" element={<Leds />} />
-            <Route path="*" element={<NoPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      <DataSender />
+              <Route path="leds" element={<Leds />} />
+              <Route path="*" element={<NoPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </FullscreenDataProvider>
     </DataProvider>
     </>
   );

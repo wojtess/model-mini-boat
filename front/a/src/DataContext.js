@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
   const [dataToSend, setDataToSend] = useState({
     joyPos: 0,
     throttlePos: 0,
+    tempPos:0,
     text: "PUT Powertrain",
     color: '#0000ff',
   });
