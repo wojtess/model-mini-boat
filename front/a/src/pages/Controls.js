@@ -3,7 +3,7 @@ import ThrottleSlider from "../ThrottleSlider";
 import Visualisation from "../Visualisation";
 import useOrientation from "../useOrientation";
 import SpeedometerComponent from "../Speedometr";
-import Display from "../Display";
+import Temp_Display from "../Temp";
 //import Fullscreen from "../Fullscreen";
 
 const Controls = () => {
@@ -12,11 +12,11 @@ const Controls = () => {
       <div className="controlPage">
         
         <div className="controlJoystick">
-          <SpeedometerComponent></SpeedometerComponent>
+          <JoystickX></JoystickX>
         </div>
         <div className="controlPanel">
-          <div className="controlTemp"><Display name="Ciśnienie" unit="Hg"></Display></div>
-          <div className="controlTemp"><Display name="Temperatura" unit="&deg;C"></Display></div>
+          <div className="controlSpeed"><SpeedometerComponent></SpeedometerComponent></div>
+          <div className="controlTemp"><Temp_Display></Temp_Display></div>
         </div>
         <div className="controlThrottle">
           <ThrottleSlider></ThrottleSlider>
@@ -29,7 +29,7 @@ const Controls = () => {
       <div className="controlPage-ho">
         <div className="controlPanel-ho">
           <div className="controlSpeed-ho"><SpeedometerComponent></SpeedometerComponent></div>
-          <div className="controlTemp-ho"><Display name="Temperatura" unit="&deg;C"></Display></div>
+          <div className="controlTemp-ho"><Temp_Display></Temp_Display></div>
         </div>
         <div className="controlThrottle-ho">
           <ThrottleSlider></ThrottleSlider>
